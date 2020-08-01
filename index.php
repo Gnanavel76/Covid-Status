@@ -80,7 +80,7 @@
                         for($i=0; $i < count($data['Countries']); $i++){
                             echo '<tr>';
                             foreach($data['Countries'][$i] as $k=>$d){
-                                if($k==='CountryCode' || $k==='Slug'){
+                                if($k==='CountryCode' || $k==='Slug' || $k==='Premium'){
                                     continue;
                                 }
                                 if($k==='Date'){
