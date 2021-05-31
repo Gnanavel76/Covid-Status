@@ -62,41 +62,21 @@
         <h2>LIVE STATUS</h2>
         <p class="lead">Scroll horizontally and vertically to see more.</p>
         <div class="container">
-            <table>
-                <tr>
-                    <th>Country</th>
-                    <th>New Confirmed</th>
-                    <th>Total Confirmed</th>
-                    <th>New Deaths</th>
-                    <th>Total Deaths</th>
-                    <th>New Recovered</th>
-                    <th>Total Recovered</th>
-                    <th>Date</th>
-                </tr>
-                <?php
-                    $api = file_get_contents('https://api.covid19api.com/summary');
-                    if(http_response_code() == 200){
-                        $data = json_decode($api, true);
-                        for($i=0; $i < count($data['Countries']); $i++){
-                            echo '<tr>';
-                            foreach($data['Countries'][$i] as $k=>$d){
-                                if($k==='CountryCode' || $k==='Slug' || $k==='Premium'){
-                                    continue;
-                                }
-                                if($k==='Date'){
-                                    echo'<td>'.date('Y-m-d H:i:sa',strtotime($d)).'</td>';
-                                }
-                                else{
-                                    echo'<td>'.$d.'</td>';
-                                }
-                            }
-                            echo '</tr>';
-                        }
-                    }
-                    else{
-                        echo '<p>Something went wrong.Refresh the page or try again later.</p>';
-                    }
-                ?>
+            <table id="covid-data">
+                <thead>
+                    <tr>
+                        <th>Country Code</th>
+                        <th>Country</th>
+                        <th>New Confirmed</th>
+                        <th>Total Confirmed</th>
+                        <th>New Deaths</th>
+                        <th>Total Deaths</th>
+                        <th>New Recovered</th>
+                        <th>Total Recovered</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
         </div>
     </section>
