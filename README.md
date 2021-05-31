@@ -12,4 +12,4 @@ This website is built and developed using HTML, CSS and Jquery.
 
 ## Live Preview
 
-https://gnanavel76.github.io/Covid-status/
+https://gnanavel76.github.io/Covid-Status/
